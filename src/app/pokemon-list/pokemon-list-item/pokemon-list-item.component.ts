@@ -3,6 +3,7 @@ import { PokemonService } from 'src/app/pokemon.service';
 import { Observable } from 'rxjs';
 import { IPokemon } from 'src/app/ipokemon.interface';
 
+
 @Component({
   selector: 'app-pokemon-list-item',
   templateUrl: './pokemon-list-item.component.html',

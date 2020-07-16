@@ -1,9 +1,32 @@
 <ng-container *ngIf="(pokemon$ | async) as pokemon">
+    <div class="card">
+        <div class="card-header primary">
+            <h5 class="card-title">
+                <a 
+                    class="poke-link"
+                    [routerLink]="['/pokemon-view', pokemon.name]"
+                >
+                    {{ pokemon.name | titlecase }}
+                </a>
+            </h5>
+            <p class="card-text">
+                <app-star-rating 
+                    [baseXp]="pokemon.base_experience"
+                ></app-star-rating>
+            </p>
+          </div>
 
-    <a 
+        <img 
+            class="card-img" 
+            [alt]="pokemon.name"
+            [src]="pokemon.sprites.front_default" 
+        />
+      </div>
+
+    <!-- <a 
         class="poke-link"
         [routerLink]="['/pokemon-view', pokemonName]"
     >
         {{ pokemonName }}
-    </a>
+    </a> -->
 </ng-container>
