@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <nav class="col-12">
+             <a 
+                class="poke-link"
+                routerLink="/"
+            >
+                Home
+            </a>
+        </nav>
+    </div>
+
+    <div
+        *ngIf="(pokemon$ | async) as pokemon" 
+        class="row"
+    >
+        <div class="col-12">
+            {{ pokemon.name }}
+        </div>
+    </div>
+</div>

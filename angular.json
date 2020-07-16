@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "poke-api"
+    }
+  },
+  "defaultProject": "poke-api",
+  "cli": {
+    "analytics": "5fb6712f-ec69-4dd5-8059-d636dc75b200"
+  }
 }
