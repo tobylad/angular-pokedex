@@ -11,8 +11,8 @@ export interface IPokemon {
     moves: any[];
     name: string;
     order: number;
-    species: {};
-    sprites: {};
+    species: any;
+    sprites: any;
     stats: any[];
     types: any[];
     weight: number;
