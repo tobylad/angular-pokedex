@@ -4,13 +4,9 @@
             *ngFor="let pokemon of allPokemon" 
             class="col-3"
         >
-            <a 
-                class="poke-link"
-                [routerLink]="['/pokemon-view', pokemon.name]"
-            >
-                {{ pokemon.name }}
-            </a>
-
+            <app-pokemon-list-item
+                [pokemonName]="pokemon.name"
+            ></app-pokemon-list-item>
         </div>
     </div>
   

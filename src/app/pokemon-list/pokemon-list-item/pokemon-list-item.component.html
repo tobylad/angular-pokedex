@@ -1,0 +1,9 @@
+<ng-container *ngIf="(pokemon$ | async) as pokemon">
+
+    <a 
+        class="poke-link"
+        [routerLink]="['/pokemon-view', pokemonName]"
+    >
+        {{ pokemonName }}
+    </a>
+</ng-container>
