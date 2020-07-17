@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-pokedex-3b7f1": {
+      "hosting": {
+        "poke-api": [
+          "angular-pokedex-3b7f1"
+        ]
+      }
+    }
+  }
+}
