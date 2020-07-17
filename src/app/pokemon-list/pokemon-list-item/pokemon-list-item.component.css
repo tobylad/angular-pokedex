@@ -6,3 +6,7 @@ img {
 .poke-link {
     color: inherit;
 }
+
+.poke-card:hover {
+    box-shadow: 0 0 5px #C0C0C0;
+}
