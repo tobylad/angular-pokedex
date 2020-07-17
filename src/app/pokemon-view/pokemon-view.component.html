@@ -1,21 +1,147 @@
-<div class="container">
+<div 
+    *ngIf="(pokemon$ | async) as pokemon"
+    class="container"
+>
     <div class="row">
-        <nav class="col-12">
-             <a 
-                class="poke-link"
-                routerLink="/"
-            >
-                Home
-            </a>
-        </nav>
+        <div class="col-12">
+            
+            <h2>
+                {{ pokemon.name | titlecase }}
+            </h2>
+            <p>
+                <app-star-rating 
+                    [baseXp]="pokemon.base_experience"
+                ></app-star-rating>
+            </p>
+        </div>
+
+        <!-- Image slides -->
+        <div class="col-lg-1 offset-lg-1 col-1 slide">
+            <fa-icon 
+                class="slide-icon"
+                alt="left"
+                [icon]="faChevronLeft"
+                (click)="cycleImage('left')"
+             ></fa-icon>
+        </div>
+
+        <div class="col-lg-4 col-9 slide-container">
+            <img 
+                class="card-img" 
+                [alt]="pokemon.name"
+                [src]="currentSpriteUrl" 
+            />
+        </div>
+
+        <div class="col-lg-1 col-1 slide">
+            <fa-icon
+                class="slide-icon"
+                alt="right"
+                [icon]="faChevronRight"
+                (click)="cycleImage('right')"
+             ></fa-icon>
+        </div>
+
+        <!-- Stats -->
+        <div class="col-lg-4 col-12">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Stats</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 
+                                class="stats"
+                                *ngFor="let stat of stats"
+                            >
+                                
+                                    <span [ngSwitch]="stat.statName">
+                                        <fa-icon *ngSwitchCase="'hp'" [icon]="faMedkit" class="medkit"></fa-icon>
+                                        <fa-icon *ngSwitchCase="'attack'" [icon]="faBolt" class="bolt"></fa-icon>
+                                        <fa-icon *ngSwitchCase="'defense'" [icon]="faLock"></fa-icon>
+                                        <fa-icon *ngSwitchCase="'special-attack'" [icon]="faCrosshairs" class="crosshairs"></fa-icon>
+                                        <fa-icon *ngSwitchCase="'special-defense'" [icon]="faMagic" class="magic"></fa-icon>
+                                        <fa-icon *ngSwitchCase="'speed'" [icon]="faFighterJet" class="jet"></fa-icon>
+                                    </span>
+                                    {{ stat.statName }}: {{ stat.amount }}
+                                
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center view-all">
+                    <a
+                        rel="apple-touch-icon"
+                        routerLink="/"
+                    >
+                        <button
+                            class="btn btn-info"
+                        >
+                            View All Pokemon
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div
-        *ngIf="(pokemon$ | async) as pokemon" 
-        class="row"
-    >
-        <div class="col-12">
-            {{ pokemon.name }}
+    <div class="card abilities-moves">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li 
+                    class="nav-item extra-info-tab"
+                    [ngClass]="{'bg-info' : infoTab === 'abilities'}"
+                >
+                    <a class="nav-link"
+                        (click)="setInfoTab('abilities')"
+                    >
+                        <h4>Abilities</h4>
+                    </a>
+                </li>
+                <li 
+                    class="nav-item extra-info-tab"
+                    [ngClass]="{'bg-info' : infoTab === 'moves'}"
+                >
+                    <a class="nav-link"
+                        (click)="setInfoTab('moves')"
+                    >
+                        <h4>Moves</h4>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div 
+            *ngIf="infoTab === 'abilities'"
+            class="card-body"
+        >
+            <div class="row">
+                <div 
+                    *ngFor="let ability of abilities"
+                    class="col-lg-3 col-6"
+                >
+                    {{ ability.abilityName }}
+                </div>
+            </div>
+        </div>
+
+        <div 
+            *ngIf="infoTab === 'moves'"
+            class="card-body"
+        >
+            <div class="row">
+                <div 
+                    *ngFor="let move of moves"
+                    class="col-lg-3 col-6"
+                >
+                    {{ move.moveName }}
+                </div>
+            </div>
         </div>
     </div>
 </div>

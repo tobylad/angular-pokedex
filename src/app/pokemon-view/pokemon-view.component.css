@@ -2,6 +2,75 @@ nav {
     text-align: right;
 }
 
-.loader-img {
-    
+.card-img {
+    margin: auto;
+    width: 90%;
+    /* So the box doesn't highlight around the image */
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+
+}
+
+.slide-container {
+    display: grid;
+    text-align: center;
+}
+
+.slide {
+    display: grid;
+}
+
+.slide-icon {
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 24px;
+    margin: auto;
+}
+
+.slide-icon:hover {
+    background-color: #ddd;
+}
+
+.abilities-moves {
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+.extra-info-tab {
+    border-bottom: 2px solid transparent;
+}
+
+.extra-info-tab:hover {
+    border-bottom: 2px solid #5bc0de;
+    cursor: pointer;
+}
+
+.stats {
+    margin-bottom: 16px;
+}
+
+.medkit {
+    color: #32CD32;
+}
+
+.bolt {
+    color: #D4AF37;
+}
+
+.crosshairs {
+    color: #FF0000;
+}
+
+.magic {
+    color: #339FFF;
+}
+
+.jet {
+    color: #C0C0C0
+}
+
+.view-all {
+    margin-top: 16px;
 }

@@ -1,9 +1,10 @@
 <ng-container *ngIf="(pokemon$ | async) as pokemon">
     <div class="card">
-        <div class="card-header primary">
+        <div class="card-header">
             <h5 class="card-title">
                 <a 
                     class="poke-link"
+                    rel="apple-touch-icon"
                     [routerLink]="['/pokemon-view', pokemon.name]"
                 >
                     {{ pokemon.name | titlecase }}
@@ -22,11 +23,4 @@
             [src]="pokemon.sprites.front_default" 
         />
       </div>
-
-    <!-- <a 
-        class="poke-link"
-        [routerLink]="['/pokemon-view', pokemonName]"
-    >
-        {{ pokemonName }}
-    </a> -->
 </ng-container>

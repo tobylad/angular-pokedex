@@ -1,5 +1,5 @@
 export interface IPokemon {
-    abilites: any[];
+    abilities: any[];
     base_experience: number;
     forms: any[];
     game_indices: any[];
@@ -12,8 +12,24 @@ export interface IPokemon {
     name: string;
     order: number;
     species: any;
-    sprites: any;
+    sprites: IPokemonSprite;
     stats: any[];
     types: any[];
     weight: number;
+}
+
+export interface IPokemonSprite {
+    back_default?: string;
+    back_female?: string;
+    back_shiny?: string;
+    back_shiny_female?: string;
+    front_default?: string;
+    front_female?: string;
+    front_shiny?: string;
+    front_shiny_female?: string;
+}
+
+export interface IPokemonStat {
+    statName: string;
+    amount: number;
 }
